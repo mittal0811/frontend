@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 import { useRef, useState } from "react";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import edit from "../images/edit.png";
-import selfie from "../images/selfie.jpeg";
+import selfie from "../images/selfie.svg";
 
 const ProfileImage = () => {
   const SmallAvatar = styled(Avatar)(({ theme }) => ({

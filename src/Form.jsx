@@ -162,11 +162,25 @@ const SecondRow = ({}) => {
 };
 
 const ThirdRow = ({ firstName, lastName, setFirstName, setLastName }) => {
+  const [error, setError] = useState("");
+  const [errorlastname, setErrorLastName] = useState("");
   const changeFirstName = (event) => {
-    setFirstName(event.target.value);
+    if (event.target?.value?.length > 24) {
+      console.log(event.target.value.length);
+      setError("Oops! Too big first name");
+    } else {
+      setError("");
+      setFirstName(event.target.value);
+    }
   };
   const changeLastName = (event) => {
-    setLastName(event.target.value);
+    if (event.target?.value?.length > 24) {
+      console.log(event.target.value.length);
+      setErrorLastName("Oops! Too big last name");
+    } else {
+      setErrorLastName("");
+      setLastName(event.target.value);
+    }
   };
   return (
     <div
@@ -183,6 +197,7 @@ const ThirdRow = ({ firstName, lastName, setFirstName, setLastName }) => {
           label={"First Name"}
           value={firstName}
           onChange={changeFirstName}
+          error={error}
         ></InputWithLabel>
       </div>
 
@@ -191,6 +206,7 @@ const ThirdRow = ({ firstName, lastName, setFirstName, setLastName }) => {
           label={"Last Name"}
           value={lastName}
           onChange={changeLastName}
+          error={errorlastname}
         ></InputWithLabel>
       </div>
     </div>
@@ -198,27 +214,52 @@ const ThirdRow = ({ firstName, lastName, setFirstName, setLastName }) => {
 };
 
 const FourthRow = ({ phoneNumber, setPhoneNumber }) => {
+  const [error, setError] = useState("");
+
   const changePhoneNumber = (event) => {
-    setPhoneNumber(event.target.value);
+    if (event.target?.value?.length > 10) {
+      setError("Oops, too long phone number");
+    } else {
+      setError("");
+      if (!isNaN(event.target.value)) setPhoneNumber(event.target.value);
+    }
   };
+
+  const formatPhoneNumber = (phoneNumberString) => {
+    var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return "(" + match[1] + ") " + match[2] + "-" + match[3];
+    }
+    return null;
+  };
+
   return (
     <InputWithLabel
       label={"Phone Number"}
       value={phoneNumber}
       onChange={changePhoneNumber}
+      error={error}
     ></InputWithLabel>
   );
 };
 
 const FifthRow = ({ jobTitle, setJobTitle }) => {
+  const [error, setError] = useState("");
   const changeJobTitle = (event) => {
-    setJobTitle(event.target.value);
+    if (event.target?.value?.length > 41) {
+      setError("Oops! Too big for a job title");
+    } else {
+      setError("");
+      setJobTitle(event.target.value);
+    }
   };
   return (
     <InputWithLabel
       label={"Job Title"}
       value={jobTitle}
       onChange={changeJobTitle}
+      error={error}
     ></InputWithLabel>
   );
 };

@@ -23,7 +23,7 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const InputWithLabel = ({ label, value, onChange }) => {
+const InputWithLabel = ({ label, value, onChange, error }) => {
   return (
     <CssTextField
       fullWidth
@@ -31,6 +31,8 @@ const InputWithLabel = ({ label, value, onChange }) => {
       id={label}
       value={value}
       onChange={onChange}
+      error={error ? true : false}
+      helperText={error ? error : ""}
       style={{
         backgroundColor: "white",
         // border: `1px solid ${COLORS.border_orange}`,
