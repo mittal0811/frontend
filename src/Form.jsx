@@ -74,7 +74,6 @@ const Form = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        overflow: "scroll",
         paddingLeft: "7%",
         paddingRight: "7%",
         backgroundColor: COLORS.bgcolor,
@@ -83,10 +82,10 @@ const Form = () => {
       <Row minHeight={90}>
         <FirstRow updateDb={updateDb}></FirstRow>
       </Row>
-      <Row minHeight={170}>
+      <Row minHeight={160}>
         <SecondRow></SecondRow>
       </Row>
-      <Row minHeight={100}>
+      <Row minHeight={80}>
         <ThirdRow
           firstName={firstName}
           lastName={lastName}
@@ -94,13 +93,13 @@ const Form = () => {
           setLastName={setLastName}
         ></ThirdRow>
       </Row>
-      <Row minHeight={100}>
+      <Row minHeight={80}>
         <FourthRow
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
         ></FourthRow>
       </Row>
-      <Row minHeight={100}>
+      <Row minHeight={80}>
         <FifthRow jobTitle={jobTitle} setJobTitle={setJobTitle}></FifthRow>
       </Row>
       <Row minHeight={200}>
