@@ -218,10 +218,13 @@ const FourthRow = ({ phoneNumber, setPhoneNumber }) => {
 
   const changePhoneNumber = (event) => {
     if (event.target?.value?.length > 10) {
-      setError("Oops, too long phone number");
+      // setError("Oops, too long phone number");
     } else {
       setError("");
       if (!isNaN(event.target.value)) setPhoneNumber(event.target.value);
+      else {
+        toast.error("Only numbers please!");
+      }
     }
   };
 
