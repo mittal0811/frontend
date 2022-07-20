@@ -80,10 +80,10 @@ const Form = () => {
         backgroundColor: COLORS.bgcolor,
       }}
     >
-      <Row minHeight={100}>
+      <Row minHeight={90}>
         <FirstRow updateDb={updateDb}></FirstRow>
       </Row>
-      <Row minHeight={230}>
+      <Row minHeight={170}>
         <SecondRow></SecondRow>
       </Row>
       <Row minHeight={100}>
