@@ -1,6 +1,6 @@
-import "./App.css";
-import canada from "./images/canada-2.svg";
-import usa from "./images/united-states.svg";
+import canada from "../images/canada-2.svg";
+import usa from "../images/united-states.svg";
+import { COLORS } from "../theme/colors";
 
 const countryTable = {
   0: { label: "USA", image: usa },
@@ -16,16 +16,20 @@ const ImportImages = ({ countryid, country, setCountry }) => {
       style={{
         width: "100",
         height: "100",
-        backgroundColor: country === countryid ? "orange" : "white",
+        backgroundColor: country === countryid ? COLORS.light_orange : "white",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
         padding: 25,
-        border: "1px solid grey",
+        border:
+          country === countryid
+            ? `1px solid ${COLORS.dark_orange}`
+            : `1px solid grey`,
         borderRadius: 7,
         marginRight: 10,
         cursor: "pointer",
+        color: "grey",
       }}
       onClick={handleOnClick}
     >
